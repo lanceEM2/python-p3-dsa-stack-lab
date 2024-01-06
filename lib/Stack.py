@@ -1,25 +1,40 @@
 class Stack:
 
     def __init__(self, items = [], limit = 100):
-        pass
+        self.items = items
+        self.limit = limit
 
     def isEmpty(self):
-        pass
+        if (len(self.items) <= self.limit):
+            return True
+        else:
+            return False
 
     def push(self, item):
-        pass
+        if len(self.items) < self.limit:
+            self.items.append(item)
+        else:
+            return "Stack overflow limit exceeded"
 
     def pop(self):
-        pass
+        if not self.isEmpty():
+            return self.items.pop()
 
     def peek(self):
         pass
     
     def size(self):
-        pass
+        return len(self.items)
 
     def full(self):
-        pass
+        if (len(self.items) >= self.limit):
+            return True
+        else:
+            return False
 
     def search(self, target):
-        pass
+        # start, stop, step
+        for i in range(len(self.items) -1, -1, -1):
+            if self.items[i] == target:
+                return len(self.items) - i - 1
+        return -1
